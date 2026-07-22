@@ -320,8 +320,10 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center center;
+      image-orientation: from-image;
       filter: saturate(1.05);
-      transform: scale(1.01);
+      transform: none;
     }
     .menu-section__bg--single {
       grid-template-columns: 1fr;
@@ -447,20 +449,22 @@
 
     /* —— Site footer —— */
     .site-footer {
-      background: var(--navy);
-      color: var(--cream);
+      background: var(--cream);
+      color: var(--maroon);
       padding: 3rem 1.25rem calc(2.25rem + var(--safe-bottom));
       text-align: center;
+      border-top: 1px solid rgba(197, 186, 97, 0.45);
     }
     .site-footer .bakery-seal {
       margin: 0 auto 1.5rem;
     }
     .site-footer h2 {
       font-size: 0.78rem;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      opacity: 0.75;
+      color: var(--maroon);
+      opacity: 0.85;
       margin-bottom: 0.5rem;
     }
     .site-footer .phone {
@@ -468,19 +472,22 @@
       font-weight: 700;
       letter-spacing: 0.03em;
       margin-bottom: 0.75rem;
+      color: var(--maroon);
     }
     .site-footer .free {
       font-size: 0.8rem;
+      color: var(--maroon);
       opacity: 0.8;
       max-width: 22rem;
       margin: 0 auto 1.75rem;
       line-height: 1.5;
     }
-    .site-footer .group-mark { color: var(--cream); margin-bottom: 1rem; }
+    .site-footer .group-mark { color: var(--maroon); margin-bottom: 1rem; }
     .site-footer .copy {
       font-size: 0.65rem;
       letter-spacing: 0.08em;
-      opacity: 0.45;
+      color: var(--mustard-deep);
+      opacity: 0.75;
     }
 
     /* Floating call button (mobile) */
@@ -494,16 +501,16 @@
       gap: 0.55rem;
       padding: 0.85rem 1.15rem;
       border-radius: 999px;
-      background: var(--navy);
+      background: var(--maroon);
       color: var(--cream);
       font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: 0.04em;
-      box-shadow: 0 8px 28px rgba(0, 30, 65, 0.35);
+      box-shadow: 0 8px 28px rgba(75, 13, 13, 0.35);
       transition: transform 0.2s ease, background 0.2s ease;
     }
     .fab-call svg { width: 18px; height: 18px; flex-shrink: 0; }
-    .fab-call:active { transform: scale(0.97); background: var(--maroon); }
+    .fab-call:active { transform: scale(0.97); background: var(--mustard-deep); color: var(--maroon); }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(10px); }
@@ -568,9 +575,20 @@
       .menu-item__note { font-size: 0.84rem; }
       .menu-panel__foot .phone { font-size: 1.15rem; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
 
-      .menu-section__bg img { filter: none; transform: none; }
+      .menu-section__bg {
+        grid-template-columns: 1fr;
+      }
+      .menu-section__bg img {
+        filter: none;
+        transform: none;
+        object-fit: cover;
+        object-position: center center;
+      }
+      .menu-section__bg img:nth-child(2) {
+        display: none;
+      }
       .menu-section::before {
-        background: rgba(0, 0, 0, 0.18);
+        background: rgba(0, 0, 0, 0.22);
       }
       .menu-panel__top .group-mark { color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.55); }
     }
@@ -647,8 +665,8 @@
     <section class="menu-section" id="borekler">
       <span class="cat-label">Börekler</span>
       <div class="menu-section__bg">
-        <img loading="lazy" decoding="async" src="assets/bg-borek.jpg" alt="" />
         <img loading="lazy" decoding="async" src="assets/bg-borek-alt.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/bg-borek.jpg" alt="" />
       </div>
       <div class="menu-panel">
         <div class="menu-panel__top">
@@ -868,8 +886,8 @@
     <section class="menu-section" id="tatlilar">
       <span class="cat-label">Tatlılar</span>
       <div class="menu-section__bg">
-        <img loading="lazy" decoding="async" src="assets/bg-sutlac.jpg" alt="" />
         <img loading="lazy" decoding="async" src="assets/bg-ekler.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/bg-sutlac.jpg" alt="" />
       </div>
       <div class="menu-panel">
         <div class="menu-panel__top">

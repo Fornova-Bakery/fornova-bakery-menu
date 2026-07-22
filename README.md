@@ -1,7 +1,8 @@
-# Fornova Bakery — Paket Servis Menü
+﻿# Fornova Bakery — Paket Servis Menü
 
-Mobil uyumlu dijital menü (GitHub Pages).
+**Türkçe:** https://canyilmaz1907.github.io/fornova-bakery-menu/  
+**Русский:** https://canyilmaz1907.github.io/fornova-bakery-menu/ru/
 
-**Canlı site:** https://canyilmaz1907.github.io/fornova-bakery-menu/
-
-QR kodu okuttuğunuzda menü telefonda açılır. Baskı için: `fornova-menu-qr.png`
+QR:
+- `fornova-menu-qr.png` → TR
+- `fornova-menu-qr-ru.png` → RU

@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#C5BA61" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Fornova Bakery" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="format-detection" content="telephone=yes" />
+  <title>Fornova Bakery — Paket Servis Menü 2026</title>
+  <meta name="description" content="Fornova Bakery paket servis menüsü. Tüm ürünler sipariş üzerine taze üretilir. Sipariş hattı: +7 977 400 40 30" />
+  <link rel="icon" type="image/png" href="assets/logo-seal.png" />
+  <link rel="apple-touch-icon" href="assets/logo-seal.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --mustard: #C5BA61;
+      --mustard-deep: #AE9D1E;
+      --cream: #F5EFDB;
+      --cream-soft: #F2EDD8;
+      --cream-panel: rgba(245, 239, 219, 0.92);
+      --maroon: #4B0D0D;
+      --navy: #001E41;
+      --slate: #5A6A7D;
+      --panel-w: min(420px, 92vw);
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --safe-left: env(safe-area-inset-left, 0px);
+      --safe-right: env(safe-area-inset-right, 0px);
+      --font: "Montserrat", system-ui, sans-serif;
+      --font-display: "Montserrat Alternates", "Montserrat", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--navy);
+      background: var(--cream);
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      min-height: 100dvh;
+      padding-bottom: calc(4.5rem + var(--safe-bottom));
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+
+    /* —— Brand marks —— */
+    .group-mark {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.15rem;
+      color: var(--navy);
+    }
+    .group-mark .name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      line-height: 1;
+    }
+    .group-mark .sub {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.48rem;
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+    }
+    .group-mark .sub::before,
+    .group-mark .sub::after {
+      content: "";
+      width: 1.4rem;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.7;
+    }
+
+    .bakery-seal {
+      width: 200px;
+      height: auto;
+      aspect-ratio: 1;
+      flex-shrink: 0;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(0, 30, 65, 0.08));
+    }
+    .bakery-seal--lg {
+      width: min(280px, 68vw);
+      filter: drop-shadow(0 4px 20px rgba(0, 30, 65, 0.1));
+    }
+
+    /* —— Cover —— */
+    .cover {
+      min-height: 100dvh;
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: minmax(48px, 1fr) minmax(280px, 420px) minmax(48px, 1fr);
+      background: var(--mustard);
+      padding-top: var(--safe-top);
+    }
+    .cover__panel {
+      background: var(--cream);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2.25rem 1.5rem max(2rem, var(--safe-bottom));
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover__panel::before {
+      content: "";
+      position: absolute;
+      top: 8%;
+      left: 50%;
+      translate: -50% 0;
+      width: min(340px, 120%);
+      height: min(340px, 120%);
+      border-radius: 50%;
+      background: var(--cream-soft);
+      box-shadow:
+        0 0 0 28px rgba(245, 239, 219, 0.55),
+        0 0 0 56px rgba(197, 186, 97, 0.22);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .cover__panel > * { position: relative; z-index: 1; }
+
+    .cover__copy {
+      margin-top: 1.75rem;
+      max-width: 16rem;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.65;
+    }
+    .cover__copy p + p { margin-top: 1.1rem; }
+
+    .cover__contact {
+      margin-top: 2.5rem;
+      width: 100%;
+    }
+    .cover__contact .label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+    .cover__contact .phone {
+      display: block;
+      font-size: clamp(1.55rem, 5vw, 1.85rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.65rem;
+    }
+    .cover__contact .note {
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--navy);
+      opacity: 0.9;
+      max-width: 18rem;
+      margin-inline: auto;
+      line-height: 1.45;
+    }
+
+    .cover__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.35rem;
+      padding: 0.7rem 1.35rem;
+      background: var(--navy);
+      color: var(--cream);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+    .cover__cta:hover {
+      background: var(--maroon);
+      transform: translateY(-1px);
+    }
+
+    /* —— Sticky nav —— */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(245, 239, 219, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(197, 186, 97, 0.45);
+      padding-top: var(--safe-top);
+    }
+    .nav__inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.65rem max(0.75rem, var(--safe-right)) 0.65rem max(0.75rem, var(--safe-left));
+    }
+    .nav__brand { flex-shrink: 0; }
+    .nav__links {
+      display: flex;
+      gap: 0.15rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      flex: 1;
+      justify-content: flex-end;
+    }
+    .nav__links::-webkit-scrollbar { display: none; }
+    .nav__links a {
+      flex-shrink: 0;
+      padding: 0.45rem 0.75rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--navy);
+      opacity: 0.72;
+      border-bottom: 2px solid transparent;
+      transition: opacity 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .nav__links a:hover,
+    .nav__links a.is-active {
+      opacity: 1;
+      color: var(--maroon);
+      border-bottom-color: var(--mustard);
+    }
+    .nav__phone {
+      display: none;
+      flex-shrink: 0;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      padding: 0.4rem 0.7rem;
+      background: var(--navy);
+      color: var(--cream);
+    }
+
+    /* —— Menu sections —— */
+    .menu-section {
+      position: relative;
+      min-height: 100dvh;
+      min-height: 100svh;
+      display: flex;
+      justify-content: center;
+      background: #1a1a1a center / cover no-repeat;
+      isolation: isolate;
+    }
+    .menu-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.18), transparent 18%, transparent 82%, rgba(0,0,0,0.18)),
+        rgba(0, 0, 0, 0.08);
+      z-index: 0;
+    }
+    .menu-section__bg {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .menu-section__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(1.2px) saturate(1.05);
+      transform: scale(1.04);
+    }
+    .menu-section__bg--single {
+      grid-template-columns: 1fr;
+    }
+
+    .menu-panel {
+      position: relative;
+      z-index: 1;
+      width: var(--panel-w);
+      min-height: 100dvh;
+      min-height: 100svh;
+      background: var(--cream-panel);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      padding: 1.35rem 1.35rem max(2rem, calc(1.25rem + var(--safe-bottom)));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .menu-panel__top {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 0.35rem;
+    }
+    .menu-panel__top .group-mark { align-self: flex-start; }
+
+    .menu-panel .bakery-seal {
+      margin: -0.2rem auto 1.5rem;
+    }
+
+    .menu-list {
+      list-style: none;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+      flex: 1;
+      justify-content: center;
+      padding: 0.25rem 0 1.5rem;
+    }
+    .menu-list li {
+      animation: fadeUp 0.55s ease both;
+    }
+    .menu-item__name {
+      font-size: clamp(0.95rem, 2.6vw, 1.05rem);
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.01em;
+    }
+    .menu-item__note {
+      display: block;
+      margin-top: 0.12rem;
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--slate);
+    }
+    .menu-item__price {
+      display: block;
+      margin-top: 0.2rem;
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--slate);
+    }
+
+    .menu-panel__foot {
+      margin-top: auto;
+      padding-top: 1rem;
+      width: 100%;
+    }
+    .menu-panel__foot .tagline {
+      font-size: 0.78rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--slate);
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+    .menu-panel__foot .label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .menu-panel__foot .phone {
+      display: block;
+      margin-top: 0.2rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+    }
+
+    /* —— Category label strip —— */
+    .cat-label {
+      position: absolute;
+      top: 1rem;
+      right: calc(50% + var(--panel-w) / 2 + 0.75rem);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 219, 0.85);
+      text-shadow: 0 1px 8px rgba(0,0,0,0.45);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* —— Site footer —— */
+    .site-footer {
+      background: var(--navy);
+      color: var(--cream);
+      padding: 3rem 1.25rem calc(2.25rem + var(--safe-bottom));
+      text-align: center;
+    }
+    .site-footer .bakery-seal {
+      margin: 0 auto 1.5rem;
+    }
+    .site-footer h2 {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 0.5rem;
+    }
+    .site-footer .phone {
+      font-size: 1.65rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.75rem;
+    }
+    .site-footer .free {
+      font-size: 0.8rem;
+      opacity: 0.8;
+      max-width: 22rem;
+      margin: 0 auto 1.75rem;
+      line-height: 1.5;
+    }
+    .site-footer .group-mark { color: var(--cream); margin-bottom: 1rem; }
+    .site-footer .copy {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      opacity: 0.45;
+    }
+
+    /* Floating call button (mobile) */
+    .fab-call {
+      position: fixed;
+      right: max(1rem, var(--safe-right));
+      bottom: max(1rem, var(--safe-bottom));
+      z-index: 60;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.85rem 1.15rem;
+      border-radius: 999px;
+      background: var(--navy);
+      color: var(--cream);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      box-shadow: 0 8px 28px rgba(0, 30, 65, 0.35);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .fab-call svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .fab-call:active { transform: scale(0.97); background: var(--maroon); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @media (min-width: 720px) {
+      .nav__phone { display: inline-block; }
+      .menu-list { gap: 1.3rem; }
+      .fab-call { display: none; }
+      body { padding-bottom: 0; }
+    }
+
+    @media (max-width: 640px) {
+      :root { --panel-w: min(100vw, 440px); }
+
+      .cover {
+        grid-template-columns: 18px 1fr 18px;
+      }
+      .cover__panel {
+        padding: max(1.35rem, var(--safe-top)) 1rem max(1.35rem, var(--safe-bottom));
+      }
+      .cover__panel::before {
+        width: min(300px, 130%);
+        height: min(300px, 130%);
+        top: 4%;
+      }
+      .bakery-seal--lg { width: min(220px, 58vw); }
+      .bakery-seal { width: min(168px, 46vw); }
+      .cover__copy { font-size: 0.86rem; max-width: 15rem; margin-top: 1.25rem; }
+      .cover__contact .phone { font-size: 1.45rem; }
+      .cover__cta {
+        width: 100%;
+        max-width: 16rem;
+        justify-content: center;
+        min-height: 44px;
+      }
+
+      .nav__brand .name { font-size: 0.58rem; letter-spacing: 0.2em; }
+      .nav__links a {
+        padding: 0.55rem 0.65rem;
+        font-size: 0.62rem;
+        min-height: 40px;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .cat-label { display: none; }
+      .menu-panel {
+        width: 100%;
+        padding: 1rem 0.9rem max(1.5rem, calc(1rem + var(--safe-bottom)));
+      }
+      .menu-panel__top .group-mark .name { font-size: 0.58rem; }
+      .menu-list { gap: 1rem; padding-bottom: 1.1rem; }
+      .menu-item__name { font-size: 0.98rem; }
+      .menu-item__price,
+      .menu-item__note { font-size: 0.84rem; }
+      .menu-panel__foot .phone { font-size: 1.15rem; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+
+      .menu-section__bg img { filter: blur(0.8px) saturate(1.05); }
+    }
+
+    @media (max-width: 380px) {
+      .cover { grid-template-columns: 12px 1fr 12px; }
+      .nav__links a { letter-spacing: 0.04em; padding-inline: 0.5rem; }
+      .fab-call span { display: none; }
+      .fab-call { padding: 0.95rem; border-radius: 50%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .menu-list li { animation: none; }
+      .cover__cta, .fab-call { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- COVER -->
+  <header class="cover" id="top">
+    <div aria-hidden="true"></div>
+    <div class="cover__panel">
+      <div class="group-mark" aria-label="Fornova Group">
+        <span class="name">FORNOVA</span>
+        <span class="sub">Group</span>
+      </div>
+
+      <img class="bakery-seal bakery-seal--lg" src="assets/logo-seal.png" width="280" height="280" alt="Fornova Bakery — Пекарня Нового Поколения" />
+<div class="cover__copy">
+        <p>Tüm ürünlerimiz sipariş üzerine taze olarak üretilmektedir.</p>
+        <p>Detaylı bilgi ve sipariş için bizimle iletişime geçin.</p>
+      </div>
+
+      <div class="cover__contact">
+        <div class="label">Sipariş &amp; teslimat Hattı</div>
+        <a class="phone" href="tel:+79774004030">+7 977 400 40 30</a>
+        <p class="note">8.000 ruble ve üzeri siparişlerde teslimat ücretsiz.</p>
+        <a class="cover__cta" href="#borekler">Menüyü İncele</a>
+      </div>
+    </div>
+    <div aria-hidden="true"></div>
+  </header>
+
+  <!-- NAV -->
+  <nav class="nav" aria-label="Menü kategorileri">
+    <div class="nav__inner">
+      <a class="nav__brand group-mark" href="#top">
+        <span class="name">FORNOVA</span>
+        <span class="sub">Bakery</span>
+      </a>
+      <div class="nav__links">
+        <a href="#borekler">Börekler</a>
+        <a href="#simit">Simit &amp; Açma</a>
+        <a href="#pogaca">Poğaça</a>
+        <a href="#baklava">Baklava</a>
+        <a href="#tatlilar">Tatlılar</a>
+        <a href="#kurabiye">Kurabiye</a>
+      </div>
+      <a class="nav__phone" href="tel:+79774004030">+7 977 400 40 30</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- BÖREKLER -->
+    <section class="menu-section" id="borekler" style="--panel-w: min(400px, 86vw)">
+      <span class="cat-label">Börekler</span>
+      <div class="menu-section__bg">
+        <img loading="lazy" decoding="async" src="assets/bg-borek.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/bg-borek-alt.jpg" alt="" />
+      </div>
+      <div class="menu-panel">
+        <div class="menu-panel__top">
+          <div class="group-mark">
+            <span class="name">FORNOVA</span>
+            <span class="sub">Group</span>
+          </div>
+        </div>
+        <img class="bakery-seal" src="assets/logo-seal.png" width="200" height="200" alt="Fornova Bakery" />
+<ul class="menu-list">
+          <li>
+            <div class="menu-item__name">• Su Böreği •</div>
+            <span class="menu-item__price">1.800 rub/kg</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Kol Böreği •</div>
+            <span class="menu-item__note">(Kıymalı)</span>
+            <span class="menu-item__price">1.800 rub/kg</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Kol Böreği •</div>
+            <span class="menu-item__note">(Ispanaklı)</span>
+            <span class="menu-item__price">1.800 rub/kg</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Kol Böreği •</div>
+            <span class="menu-item__note">(Patatesli)</span>
+            <span class="menu-item__price">1.600 rub/kg</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Kol Böreği •</div>
+            <span class="menu-item__note">(Peynirli)</span>
+            <span class="menu-item__price">1.600 rub/kg</span>
+          </li>
+        </ul>
+        <div class="menu-panel__foot">
+          <p class="tagline">Doğal malzemeler, zanaatkâr üretim anlayışı.</p>
+          <div class="label">Sipariş Hattı</div>
+          <a class="phone" href="tel:+79774004030">+7 977 400 40 30</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SİMİT & AÇMA -->
+    <section class="menu-section" id="simit">
+      <span class="cat-label">Simit &amp; Açma</span>
+      <div class="menu-section__bg">
+        <img loading="lazy" decoding="async" src="assets/bg-simit-1.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/bg-acma.jpg" alt="" />
+      </div>
+      <div class="menu-panel">
+        <div class="menu-panel__top">
+          <div class="group-mark">
+            <span class="name">FORNOVA</span>
+            <span class="sub">Group</span>
+          </div>
+        </div>
+        <img class="bakery-seal" src="assets/logo-seal.png" width="200" height="200" alt="Fornova Bakery" />
+<ul class="menu-list">
+          <li>
+            <div class="menu-item__name">• Simit •</div>
+            <span class="menu-item__price">120 rub/adet</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Simit Kaşarlı •</div>
+            <span class="menu-item__price">190 rub/adet</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Açma Sade •</div>
+            <span class="menu-item__price">100 rub/adet</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Açma Kıymalı •</div>
+            <span class="menu-item__price">130 rub/adet</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Açma Ispanaklı •</div>
+            <span class="menu-item__price">130 rub/adet</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Açma Zeytinli •</div>
+            <span class="menu-item__price">130 rub/adet</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Açma Peynirli •</div>
+            <span class="menu-item__price">120 rub/adet</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Açma Patatesli •</div>
+            <span class="menu-item__price">120 rub/adet</span>
+          </li>
+        </ul>
+        <div class="menu-panel__foot">
+          <div class="label">Sipariş Hattı</div>
+          <a class="phone" href="tel:+79774004030">+7 977 400 40 30</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- POĞAÇA -->
+    <section class="menu-section" id="pogaca">
+      <span class="cat-label">Poğaçalar</span>
+      <div class="menu-section__bg menu-section__bg--single">
+        <img loading="lazy" decoding="async" src="assets/bg-pogaca.jpg" alt="" />
+      </div>
+      <div class="menu-panel">
+        <div class="menu-panel__top">
+          <div class="group-mark">
+            <span class="name">FORNOVA</span>
+            <span class="sub">Group</span>
+          </div>
+        </div>
+        <img class="bakery-seal" src="assets/logo-seal.png" width="200" height="200" alt="Fornova Bakery" />
+<ul class="menu-list">
+          <li>
+            <div class="menu-item__name">• Poğaça Sade •</div>
+            <span class="menu-item__price">100 rub/adet</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Poğaça Kıymalı •</div>
+            <span class="menu-item__price">130 rub/adet</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Poğaça Ispanaklı •</div>
+            <span class="menu-item__price">130 rub/adet</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Poğaça Kaşarlı •</div>
+            <span class="menu-item__price">130 rub/adet</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Poğaça Zeytinli •</div>
+            <span class="menu-item__price">130 rub/adet</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Poğaça Peynirli •</div>
+            <span class="menu-item__price">120 rub/adet</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Poğaça Patatesli •</div>
+            <span class="menu-item__price">120 rub/adet</span>
+          </li>
+        </ul>
+        <div class="menu-panel__foot">
+          <p class="tagline">Doğal malzemeler, zanaatkâr üretim anlayışı.</p>
+          <div class="label">Sipariş Hattı</div>
+          <a class="phone" href="tel:+79774004030">+7 977 400 40 30</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BAKLAVA -->
+    <section class="menu-section" id="baklava">
+      <span class="cat-label">Baklavalar</span>
+      <div class="menu-section__bg">
+        <img loading="lazy" decoding="async" src="assets/bg-sarma.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/bg-baklava.jpg" alt="" />
+      </div>
+      <div class="menu-panel">
+        <div class="menu-panel__top">
+          <div class="group-mark">
+            <span class="name">FORNOVA</span>
+            <span class="sub">Group</span>
+          </div>
+        </div>
+        <img class="bakery-seal" src="assets/logo-seal.png" width="200" height="200" alt="Fornova Bakery" />
+<ul class="menu-list" style="gap: 0.95rem">
+          <li>
+            <div class="menu-item__name">• Fıstıklı Sarma •</div>
+            <span class="menu-item__price">3.500 rub/kg</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Fıstıklı Baklava •</div>
+            <span class="menu-item__price">2.800 rub/kg</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Cevizli Baklava •</div>
+            <span class="menu-item__price">1.850 rub/kg</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Soğuk Baklava •</div>
+            <span class="menu-item__price">2.900 rub/kg</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Havuç Dilimi •</div>
+            <span class="menu-item__price">2.800 rub/kg</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Şöbiyet •</div>
+            <span class="menu-item__price">2.800 rub/kg</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Midye Baklava •</div>
+            <span class="menu-item__price">2.800 rub/kg</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Fıstıklı Kadayıf •</div>
+            <span class="menu-item__price">2.800 rub/kg</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Cevizli Kadayıf •</div>
+            <span class="menu-item__price">1.850 rub/kg</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Laz Böreği •</div>
+            <span class="menu-item__price">2.500 rub/kg</span>
+          </li>
+        </ul>
+        <div class="menu-panel__foot">
+          <div class="label">Sipariş Hattı</div>
+          <a class="phone" href="tel:+79774004030">+7 977 400 40 30</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TATLILAR -->
+    <section class="menu-section" id="tatlilar">
+      <span class="cat-label">Tatlılar</span>
+      <div class="menu-section__bg">
+        <img loading="lazy" decoding="async" src="assets/bg-sutlac.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/bg-ekler.jpg" alt="" />
+      </div>
+      <div class="menu-panel">
+        <div class="menu-panel__top">
+          <div class="group-mark">
+            <span class="name">FORNOVA</span>
+            <span class="sub">Group</span>
+          </div>
+        </div>
+        <img class="bakery-seal" src="assets/logo-seal.png" width="200" height="200" alt="Fornova Bakery" />
+<ul class="menu-list" style="gap: 1rem">
+          <li>
+            <div class="menu-item__name">• Profiterol •</div>
+            <span class="menu-item__price">450 rub/adet (450gr)</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Supangle •</div>
+            <span class="menu-item__price">370 rub/adet (200gr)</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Fırın Sütlaç •</div>
+            <span class="menu-item__price">380 rub/adet (200gr)</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Trileçe •</div>
+            <span class="menu-item__price">Tepsi (18 dilim) — 4.500 rub</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Ekler •</div>
+            <span class="menu-item__price">250 rub/adet (120gr)</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Mini Ekler •</div>
+            <span class="menu-item__price">2.000 rub/kg</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Kabak Tatlısı •</div>
+            <span class="menu-item__price">500 rub/adet (250gr)</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• İrmik Helvası •</div>
+            <span class="menu-item__price">Sipariş Üzerine</span>
+          </li>
+        </ul>
+        <div class="menu-panel__foot">
+          <div class="label">Sipariş Hattı</div>
+          <a class="phone" href="tel:+79774004030">+7 977 400 40 30</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- KURABİYE -->
+    <section class="menu-section" id="kurabiye">
+      <span class="cat-label">Kurabiyeler</span>
+      <div class="menu-section__bg">
+        <img loading="lazy" decoding="async" src="assets/bg-cookies-1.jpg" alt="" />
+        <img loading="lazy" decoding="async" src="assets/bg-cookies-2.jpg" alt="" />
+      </div>
+      <div class="menu-panel">
+        <div class="menu-panel__top">
+          <div class="group-mark">
+            <span class="name">FORNOVA</span>
+            <span class="sub">Group</span>
+          </div>
+        </div>
+        <img class="bakery-seal" src="assets/logo-seal.png" width="200" height="200" alt="Fornova Bakery" />
+<ul class="menu-list" style="gap: 1rem">
+          <li>
+            <div class="menu-item__name">• Karışık Tatlı Kurabiye •</div>
+            <span class="menu-item__price">1.800 rub/kg</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Karışık Tuzlu Kurabiye •</div>
+            <span class="menu-item__price">1.600 rub/kg</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Hurmalı Kurabiye •</div>
+            <span class="menu-item__price">2.100 rub/kg</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Vişneli Kurabiye •</div>
+            <span class="menu-item__price">2.100 rub/kg</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Fıstıklı Kurabiye •</div>
+            <span class="menu-item__price">2.100 rub/kg</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Fındıklı Kurabiye •</div>
+            <span class="menu-item__price">2.100 rub/kg</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• İncirli Egzotik Kurabiye •</div>
+            <span class="menu-item__price">2.100 rub/kg</span>
+          </li>
+          <li>
+            <div class="menu-item__name">• Kandil Simidi •</div>
+            <span class="menu-item__price">1.800 rub/kg</span>
+          </li>
+        </ul>
+        <div class="menu-panel__foot">
+          <div class="label">Sipariş Hattı</div>
+          <a class="phone" href="tel:+79774004030">+7 977 400 40 30</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <img class="bakery-seal" src="assets/logo-seal.png" width="200" height="200" alt="Fornova Bakery" />
+<h2>Sipariş &amp; teslimat Hattı</h2>
+    <a class="phone" href="tel:+79774004030">+7 977 400 40 30</a>
+    <p class="free">8.000 ruble ve üzeri siparişlerde teslimat ücretsiz.<br />Tüm ürünlerimiz sipariş üzerine taze olarak üretilmektedir.</p>
+    <div class="group-mark">
+      <span class="name">FORNOVA</span>
+      <span class="sub">Group</span>
+    </div>
+    <p class="copy">© 2026 Fornova Bakery — Paket Servis Menü</p>
+  </footer>
+
+  <a class="fab-call" href="tel:+79774004030" aria-label="Sipariş hattını ara">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.68 2.35a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.75.32 1.54.55 2.35.68A2 2 0 0 1 22 16.92z"/>
+    </svg>
+    <span>Ara</span>
+  </a>
+
+  <script>
+    const links = [...document.querySelectorAll(".nav__links a")];
+    const sections = links
+      .map((a) => document.querySelector(a.getAttribute("href")))
+      .filter(Boolean);
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const id = "#" + entry.target.id;
+          links.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === id));
+        });
+      },
+      { rootMargin: "-35% 0px -50% 0px", threshold: 0 }
+    );
+    sections.forEach((s) => io.observe(s));
+  </script>
+</body>
+</html>

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#C5BA61" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Fornova Bakery" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="format-detection" content="telephone=yes" />
+  <title>Fornova Bakery — Hakkımızda &amp; Hizmetlerimiz</title>
+  <meta name="description" content="Fornova Bakery: geleneksel Türk lezzetlerinde güvenilir üretim ortağınız. Kurumsal tedarik, catering ve günlük taze üretim — Moskova." />
+  <link rel="icon" type="image/png" href="../assets/logo-seal.png" />
+  <link rel="apple-touch-icon" href="../assets/logo-seal.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --mustard: #C5BA61;
+      --mustard-deep: #AE9D1E;
+      --cream: #F5EFDB;
+      --cream-soft: #F2EDD8;
+      --maroon: #4B0D0D;
+      --navy: #001E41;
+      --slate: #5A6A7D;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --safe-left: env(safe-area-inset-left, 0px);
+      --safe-right: env(safe-area-inset-right, 0px);
+      --font: "Montserrat", system-ui, sans-serif;
+      --font-display: "Montserrat Alternates", "Montserrat", sans-serif;
+      --max: 980px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--navy);
+      background: var(--cream);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100dvh;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+
+    .shell {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding-left: max(1.35rem, var(--safe-left));
+      padding-right: max(1.35rem, var(--safe-right));
+    }
+
+    /* —— Top bar —— */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(245, 239, 219, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(197, 186, 97, 0.4);
+      padding-top: var(--safe-top);
+    }
+    .topbar__inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.75rem max(1rem, var(--safe-right)) 0.75rem max(1rem, var(--safe-left));
+    }
+    .brand-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    .brand-lockup img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+    .brand-lockup .name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+    }
+    .top-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .top-nav a {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.45rem 0.7rem;
+      opacity: 0.7;
+      border-bottom: 2px solid transparent;
+    }
+    .top-nav a.is-active,
+    .top-nav a:hover {
+      opacity: 1;
+      color: var(--maroon);
+      border-bottom-color: var(--mustard);
+    }
+    .lang-switch {
+      display: inline-flex;
+      gap: 0.25rem;
+      margin-left: 0.35rem;
+    }
+    .lang-switch a {
+      padding: 0.35rem 0.55rem;
+      min-width: 2.2rem;
+      text-align: center;
+      border: 1px solid rgba(0, 30, 65, 0.22);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      opacity: 0.65;
+    }
+    .lang-switch a.is-active {
+      background: var(--navy);
+      color: var(--cream);
+      border-color: var(--navy);
+      opacity: 1;
+    }
+
+    /* —— Hero —— */
+    .hero {
+      padding: 3.5rem 0 3rem;
+      text-align: center;
+    }
+    .hero__seal {
+      width: min(168px, 42vw);
+      margin: 0 auto 1.75rem;
+      filter: drop-shadow(0 4px 16px rgba(0, 30, 65, 0.1));
+    }
+    .hero__kicker {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--mustard-deep);
+      margin-bottom: 1.1rem;
+    }
+    .hero__title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.35rem, 4.2vw, 2rem);
+      letter-spacing: 0.06em;
+      line-height: 1.25;
+      color: var(--maroon);
+      max-width: 18ch;
+      margin: 0 auto 1.5rem;
+      text-wrap: balance;
+    }
+    .hero__lead {
+      max-width: 34rem;
+      margin: 0 auto;
+      font-size: 0.98rem;
+      font-weight: 400;
+      color: var(--navy);
+      opacity: 0.88;
+      line-height: 1.7;
+    }
+    .rule {
+      width: 3.5rem;
+      height: 1px;
+      background: var(--mustard);
+      margin: 2.25rem auto 0;
+      opacity: 0.85;
+    }
+
+    /* —— Trust strip —— */
+    .trust {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(197, 186, 97, 0.45);
+      border: 1px solid rgba(197, 186, 97, 0.45);
+      margin: 0.5rem 0 3.5rem;
+    }
+    .trust__item {
+      background: var(--cream);
+      text-align: center;
+      padding: 1.5rem 0.85rem;
+    }
+    .trust__value {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.05rem, 2.8vw, 1.35rem);
+      color: var(--maroon);
+      letter-spacing: 0.02em;
+      margin-bottom: 0.35rem;
+    }
+    .trust__label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--slate);
+    }
+
+    /* —— Service cards —— */
+    .section-head {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .section-head h2 {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+    .section-head p {
+      margin-top: 0.65rem;
+      font-size: 0.9rem;
+      color: var(--slate);
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 4rem;
+    }
+    .service {
+      background: rgba(255, 255, 255, 0.35);
+      border: 1px solid rgba(197, 186, 97, 0.4);
+      padding: 2rem 1.4rem 1.85rem;
+      text-align: center;
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+    .service:hover {
+      border-color: var(--mustard-deep);
+      transform: translateY(-2px);
+    }
+    .service__title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--maroon);
+      margin-bottom: 1.15rem;
+    }
+    .service__points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .service__points li {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.45;
+    }
+    .service__points li strong {
+      display: block;
+      font-weight: 700;
+      color: var(--maroon);
+      font-size: 1.02rem;
+      margin-bottom: 0.15rem;
+    }
+    .service__note {
+      margin-top: 1.1rem;
+      font-size: 0.84rem;
+      color: var(--slate);
+      line-height: 1.55;
+    }
+
+    /* —— Info blocks —— */
+    .blocks {
+      display: flex;
+      flex-direction: column;
+      gap: 2.75rem;
+      margin-bottom: 3.5rem;
+    }
+    .block {
+      text-align: center;
+      max-width: 40rem;
+      margin: 0 auto;
+    }
+    .block h3 {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+    .block p,
+    .block__line {
+      font-size: 0.95rem;
+      color: var(--navy);
+      opacity: 0.9;
+      line-height: 1.65;
+    }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.45rem 0.55rem;
+      margin-top: 0.35rem;
+    }
+    .pill {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--navy);
+      border: 1px solid rgba(197, 186, 97, 0.55);
+      padding: 0.45rem 0.75rem;
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* —— CTA band —— */
+    .cta-band {
+      text-align: center;
+      padding: 3rem 1.25rem;
+      margin: 0.5rem 0 3rem;
+      border-top: 1px solid rgba(197, 186, 97, 0.45);
+      border-bottom: 1px solid rgba(197, 186, 97, 0.45);
+      background: linear-gradient(
+        180deg,
+        rgba(197, 186, 97, 0.12),
+        rgba(245, 239, 219, 0.4) 40%,
+        rgba(197, 186, 97, 0.1)
+      );
+    }
+    .cta-band__title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1rem, 3.2vw, 1.35rem);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--maroon);
+      line-height: 1.45;
+    }
+
+    /* —— Contact —— */
+    .contact {
+      text-align: center;
+      padding-bottom: calc(3.5rem + var(--safe-bottom));
+    }
+    .contact__grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem 1.25rem;
+      max-width: 32rem;
+      margin: 0 auto 2.25rem;
+    }
+    .contact__item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .contact__item .label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mustard-deep);
+    }
+    .contact__item a,
+    .contact__item span {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .contact__item a:hover { color: var(--maroon); }
+
+    .contact__links {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .contact__links a {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--slate);
+      border-bottom: 1px solid rgba(197, 186, 97, 0.7);
+      padding-bottom: 0.15rem;
+    }
+    .contact__links a:hover { color: var(--maroon); }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0.75rem 1.35rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+    .btn--primary {
+      background: var(--navy);
+      color: var(--cream);
+    }
+    .btn--primary:hover {
+      background: var(--maroon);
+      transform: translateY(-1px);
+    }
+    .btn--ghost {
+      border: 1px solid rgba(0, 30, 65, 0.28);
+      color: var(--navy);
+    }
+    .btn--ghost:hover {
+      border-color: var(--maroon);
+      color: var(--maroon);
+    }
+
+    .site-foot {
+      text-align: center;
+      padding: 1.5rem 1rem calc(1.5rem + var(--safe-bottom));
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      color: var(--mustard-deep);
+      opacity: 0.8;
+      border-top: 1px solid rgba(197, 186, 97, 0.35);
+    }
+
+    @media (max-width: 860px) {
+      .services { grid-template-columns: 1fr; max-width: 26rem; margin-left: auto; margin-right: auto; }
+      .trust { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .hero { padding: 2.5rem 0 2.25rem; }
+      .trust__item { padding: 1.15rem 0.55rem; }
+      .contact__grid { grid-template-columns: 1fr; gap: 1.15rem; }
+      .top-nav a:not(.is-active):nth-child(1) { display: none; }
+      .btn { width: 100%; max-width: 18rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .service { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand-lockup" href="../">
+        <img src="../assets/logo-seal.png" width="42" height="42" alt="" />
+        <span class="name">FORNOVA BAKERY</span>
+      </a>
+      <div class="top-nav">
+        <a href="../">Menü</a>
+        <a class="is-active" href="./">Hakkımızda</a>
+        <div class="lang-switch" aria-label="Dil">
+          <a class="is-active" href="./" hreflang="tr">TR</a>
+          <a href="../ru/hakkimizda/" hreflang="ru">RU</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero shell">
+      <img class="hero__seal" src="../assets/logo-seal.png" width="168" height="168" alt="Fornova Bakery" />
+      <p class="hero__kicker">Hakkımızda &amp; Hizmetlerimiz</p>
+      <h1 class="hero__title">Geleneksel Türk lezzetlerinde güvenilir üretim ortağınız</h1>
+      <p class="hero__lead">
+        Fornova Bakery; günlük taze üretim, kurumsal tedarik ve organizasyon catering’inde
+        doğal içerikler ve zamanında teslimatla Moskova’da yanınızda.
+      </p>
+      <div class="rule" aria-hidden="true"></div>
+    </section>
+
+    <div class="shell">
+      <div class="trust" aria-label="Güven unsurları">
+        <div class="trust__item">
+          <div class="trust__value">25+</div>
+          <div class="trust__label">Yıllık deneyim</div>
+        </div>
+        <div class="trust__item">
+          <div class="trust__value">%100</div>
+          <div class="trust__label">Doğal</div>
+        </div>
+        <div class="trust__item">
+          <div class="trust__value">Günlük</div>
+          <div class="trust__label">Taze üretim</div>
+        </div>
+        <div class="trust__item">
+          <div class="trust__value">B2B</div>
+          <div class="trust__label">Kurumsal tedarik</div>
+        </div>
+      </div>
+
+      <div class="section-head">
+        <h2>Hizmetlerimiz</h2>
+        <p>Üretimden teslimata kadar tek çatı altında.</p>
+      </div>
+
+      <div class="services">
+        <article class="service">
+          <h3 class="service__title">Üretim</h3>
+          <ul class="service__points">
+            <li><strong>25+ yıllık deneyim</strong></li>
+            <li>Günlük ve siparişe özel üretim</li>
+            <li>%100 doğal, katkısız içerikler</li>
+          </ul>
+        </article>
+
+        <article class="service">
+          <h3 class="service__title">Kurumsal Tedarik</h3>
+          <ul class="service__points">
+            <li><strong>Ofis · Şantiye · Restoran</strong></li>
+            <li>Kafe · Fabrika</li>
+          </ul>
+          <p class="service__note">Tek siparişten yüksek hacimli düzenli tedarike kadar.</p>
+        </article>
+
+        <article class="service">
+          <h3 class="service__title">Catering &amp; Organizasyon</h3>
+          <ul class="service__points">
+            <li><strong>Kahvaltı · Toplantı · Etkinlik</strong></li>
+            <li>Seminer · Davet</li>
+          </ul>
+          <p class="service__note">İhtiyaca özel menü ve zamanında teslimat.</p>
+        </article>
+      </div>
+
+      <div class="blocks">
+        <section class="block">
+          <h3>Ürünlerimiz</h3>
+          <div class="pill-row">
+            <span class="pill">Simit &amp; Unlu Mamuller</span>
+            <span class="pill">Börekler</span>
+            <span class="pill">Baklava &amp; Türk Tatlıları</span>
+            <span class="pill">Sütlü Tatlılar</span>
+            <span class="pill">Pasta</span>
+            <span class="pill">Kurabiye</span>
+            <span class="pill">Özel Üretimler</span>
+          </div>
+        </section>
+
+        <section class="block">
+          <h3>İşletmelere Özel</h3>
+          <p>
+            Restoran ve kafeler için kendi markanızla düzenli üretim ve tedarik hizmeti.
+          </p>
+        </section>
+
+        <section class="block">
+          <h3>Neden Fornova?</h3>
+          <div class="pill-row">
+            <span class="pill">Doğal içerikler</span>
+            <span class="pill">Katkısız üretim</span>
+            <span class="pill">Geleneksel tarifler</span>
+            <span class="pill">Günlük tazelik</span>
+            <span class="pill">Yüksek üretim kapasitesi</span>
+            <span class="pill">Zamanında teslimat</span>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <section class="cta-band">
+      <p class="cta-band__title">Sipariş · Kurumsal Tedarik · Catering</p>
+    </section>
+
+    <section class="contact shell" id="iletisim">
+      <div class="contact__grid">
+        <div class="contact__item">
+          <span class="label">Telefon</span>
+          <a href="tel:+79774004030">+7 977 400 40 30</a>
+        </div>
+        <div class="contact__item">
+          <span class="label">E-posta</span>
+          <a href="mailto:info@fornovabakery.ru">info@fornovabakery.ru</a>
+        </div>
+        <div class="contact__item">
+          <span class="label">Konum</span>
+          <span>Moskova</span>
+        </div>
+        <div class="contact__item">
+          <span class="label">Web</span>
+          <a href="../">Menü sayfası</a>
+        </div>
+      </div>
+
+      <div class="contact__links">
+        <a href="https://instagram.com/" rel="noopener noreferrer" target="_blank">Instagram</a>
+        <a href="../">Paket Servis Menü</a>
+      </div>
+
+      <div class="btn-row">
+        <a class="btn btn--primary" href="tel:+79774004030">Hemen Ara</a>
+        <a class="btn btn--ghost" href="../">Menüye Dön</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    © 2026 Fornova Bakery — Hakkımızda &amp; Hizmetlerimiz
+  </footer>
+</body>
+</html>

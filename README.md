@@ -1,7 +1,11 @@
 ﻿# Fornova Bakery — Paket Servis Menü
 
-**Türkçe:** https://fornova-bakery.github.io/fornova-bakery-menu/  
-**Русский:** https://fornova-bakery.github.io/fornova-bakery-menu/ru/
+**Türkçe menü:** https://fornova-bakery.github.io/fornova-bakery-menu/  
+**Русский меню:** https://fornova-bakery.github.io/fornova-bakery-menu/ru/
+
+**Hakkımızda / О нас:**  
+- TR: https://fornova-bakery.github.io/fornova-bakery-menu/hakkimizda/  
+- RU: https://fornova-bakery.github.io/fornova-bakery-menu/ru/hakkimizda/
 
 QR:
 - `fornova-menu-qr.png` → TR
